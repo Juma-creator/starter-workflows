@@ -70,3 +70,43 @@ For viewing the templates with `preview` label, provide query parameter `preview
 
 ### Enable template for public
 Remove the `labels` array from `properties.json` file to publish the template to public
+
+
+mkdir my-node-project
+cd my-node-project
+npm init -y
+npm install express
+my-node-project/
+│
+├── package.json
+├── package-lock.json
+├── node_modules/
+├── src/
+│   ├── index.js
+│   └── routes/
+├── tests/
+│   └── test.js
+├── .gitignore
+└── README.md
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}/`);
+});
+node src/index.js
+npm install mocha chai --save-dev
+const chai = require('chai');
+const expect = chai.expect;
+
+describe('Sample Test', function() {
+  it('should return true', function() {
+    expect(true).to.be.true;
+  });
+});
+npx mocha tests/test.js
